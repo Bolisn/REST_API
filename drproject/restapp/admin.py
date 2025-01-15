@@ -4,3 +4,4 @@ from .models import job_post
 
 admin.site.register(Item)
 admin.site.register(job_post)
+

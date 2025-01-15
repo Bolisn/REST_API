@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Item , job_post
 from .serializers import ItemSerializer , JobSerializer
 from rest_framework import generics
+
+def home(request):
+    return render(request, 'home.html')
 
 class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
