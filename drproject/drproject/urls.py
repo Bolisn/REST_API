@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from restapp.views import ItemListCreateView
+from restapp.views import ItemListCreateView , UploadJob
 from rest_framework.authtoken.views import obtain_auth_token
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('items/', ItemListCreateView.as_view(), name='item-list-create'),
     path('api/token/', obtain_auth_token, name='api_token_auth'),
-]
+    path('job/post/', UploadJob.as_view(), name = 'Upload-Job')
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
