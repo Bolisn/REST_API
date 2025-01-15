@@ -5,7 +5,7 @@ from .serializers import ItemSerializer , JobSerializer
 from rest_framework import generics
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home1.html')
 
 class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
