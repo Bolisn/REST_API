@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Item , job_post
-from .serializers import ItemSerializer , JobSerializer
+from .serializers import ItemSerializer , JobSerializer, CvSerializer
 from rest_framework import generics
 
 def home(request):
@@ -14,3 +14,7 @@ class ItemListCreateView(generics.ListCreateAPIView):
 class UploadJob(generics.ListCreateAPIView):
     queryset = job_post.objects.all()
     serializer_class = JobSerializer
+
+class UploadCv(generics.ListCreateAPIView):
+    queryset = job_post.objects.all()
+    serializer_class = CvSerializer
